@@ -10,6 +10,8 @@ defineProps({
         default: 0
     }
 })
+// Défnition des événements émis par le composant
+const emit = defineEmits(["former"]);
 </script>
 
 <template>
@@ -27,7 +29,7 @@ defineProps({
         <h2 class="name">{{ troupe.nom }}</h2>
 
         <button :style="`background-color: ${ troupe.couleur }`"
-                @click="formerTroupe(troupe.cout)"
+                @click="emit('former', troupe.cout)"
                 :disabled="or < troupe.cout"
         >
             Former

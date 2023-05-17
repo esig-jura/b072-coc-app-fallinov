@@ -92,7 +92,7 @@ function formerTroupe(cout) {
   <main>
     <ul class="cartes">
       <li v-for="troupe in troupes" :key="troupe.id">
-        <troupe-carte :troupe="troupe" :or="totalOr"/>
+        <troupe-carte :troupe="troupe" :or="totalOr" @former="formerTroupe"/>
       </li>
     </ul>
   </main>
