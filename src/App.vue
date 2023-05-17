@@ -1,6 +1,7 @@
 <script setup>
 // Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
 import {reactive, ref} from 'vue'
+import PageTopBarre from "@/components/PageTopBarre.vue";
 // Datas statiques
 const titre = 'Clash of Clans'
 const description = 'Construire un village, former un clan et participer à' +
@@ -83,11 +84,7 @@ function formerTroupe(cout) {
 </script>
 
 <template>
-  <div class="solde-or">
-    <img src="img/piece-or-note.jpg" alt="Solde Or">
-    {{ totalOr.toLocaleString('fr-CH') }}
-    pièces d'or
-  </div>
+    <page-top-barre :or="totalOr" />
   <header>
     <h1>{{ titre }}</h1>
     <p class="description"> {{ description }}</p>
