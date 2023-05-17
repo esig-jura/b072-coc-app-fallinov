@@ -4,6 +4,7 @@ import {reactive, ref} from 'vue'
 import PageTopBarre from "@/components/PageTopBarre.vue";
 import PageHeader from "@/components/PageHeader.vue";
 import PageFooter from "@/components/PageFooter.vue";
+import TroupeCarte from "@/components/TroupeCarte.vue";
 // Datas statiques
 const titre = 'Clash of Clans'
 const description = 'Construire un village, former un clan et participer à' +
@@ -91,54 +92,7 @@ function formerTroupe(cout) {
   <main>
     <ul class="cartes">
       <li v-for="troupe in troupes" :key="troupe.id">
-        <article>
-          <header :style="`background: url('img/${ troupe.imageFond }')`">
-            <img :src="'img/' + troupe.image" :alt="troupe.nom"/>
-          </header>
-
-          <div class="level"
-               :style="`color: ${ troupe.couleur }`"
-          >
-            Niveau {{ troupe.niveau }}
-          </div>
-
-          <h2 class="name">{{ troupe.nom }}</h2>
-
-          <button :style="`background-color: ${ troupe.couleur }`"
-                  @click="formerTroupe(troupe.cout)"
-                  :disabled="totalOr < troupe.cout"
-          >
-            Former
-            <img src="img/piece-or.png" alt="Former">
-          </button>
-
-          <p class="description">
-            {{ troupe.description }}
-          </p>
-
-          <footer >
-            <div class="training" :style="`background-color: ${ troupe.couleur }`">
-              <div v-if="troupe.formation > 60">
-                {{ Math.round(troupe.formation / 60) }}<sup>min
-              </sup>
-              </div>
-              <div v-else>
-                {{ troupe.formation }}<sup>sec</sup>
-              </div>
-              <div>Formation</div>
-            </div>
-
-            <div class="speed" :style="`background-color: ${ troupe.couleur }`">
-              <div>{{ troupe.vitesse }}</div>
-              <div>Vitesse</div>
-            </div>
-
-            <div class="cost" :style="`background-color: ${ troupe.couleur }`">
-              <div>{{ troupe.cout }}</div>
-              <div>Coût</div>
-            </div>
-          </footer>
-        </article>
+        <troupe-carte :troupe="troupe" :or="totalOr"/>
       </li>
     </ul>
   </main>
