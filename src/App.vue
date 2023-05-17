@@ -2,6 +2,7 @@
 // Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
 import {reactive, ref} from 'vue'
 import PageTopBarre from "@/components/PageTopBarre.vue";
+import PageHeader from "@/components/PageHeader.vue";
 // Datas statiques
 const titre = 'Clash of Clans'
 const description = 'Construire un village, former un clan et participer à' +
@@ -84,14 +85,8 @@ function formerTroupe(cout) {
 </script>
 
 <template>
-    <page-top-barre :or="totalOr" />
-  <header>
-    <h1>{{ titre }}</h1>
-    <p class="description"> {{ description }}</p>
-    <a :href="site">
-      <button>Site officiel</button>
-    </a>
-  </header>
+  <page-top-barre :or="totalOr" />
+  <page-header :titre="titre" :description="description" :site="site"/>
   <main>
     <ul class="cartes">
       <li v-for="troupe in troupes" :key="troupe.id">
@@ -154,24 +149,3 @@ function formerTroupe(cout) {
   </footer>
 </template>
 
-<style scoped lang="sass">
-/* https://sass-lang.com/guide */
-//$primary: #800080
-//$secondary: #fefefe
-//
-//h1
-//  color: $primary
-//  text-align: center
-//
-//ul
-//  list-style: none
-//  display: flex
-//  flex-wrap: wrap
-//  justify-content: center
-//  li
-//    color: $secondary
-//    background-color: $primary
-//    margin: 1rem
-//    padding: 1rem
-//    max-width: 200px
-</style>
