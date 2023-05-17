@@ -3,6 +3,7 @@
 import {reactive, ref} from 'vue'
 import PageTopBarre from "@/components/PageTopBarre.vue";
 import PageHeader from "@/components/PageHeader.vue";
+import PageFooter from "@/components/PageFooter.vue";
 // Datas statiques
 const titre = 'Clash of Clans'
 const description = 'Construire un village, former un clan et participer à' +
@@ -141,11 +142,6 @@ function formerTroupe(cout) {
       </li>
     </ul>
   </main>
-  <footer>
-    &copy; 2023 -
-    <a :href="site">
-      Supercell.com
-    </a>
-  </footer>
+  <page-footer :site="site" />
 </template>
 
